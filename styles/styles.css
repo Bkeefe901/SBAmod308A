@@ -11,8 +11,25 @@ html, body{
     box-sizing: inherit;
 }
 
-body{
+header{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 8em;
+    background-color: dimgray;
+    padding: 2em;
+}
+
+header > h1{
+    color: antiquewhite;
+}
+
+.dropdown{
+    display: flex;
+    justify-content: center;
+}
+
+/* body{
     display: flex;
     justify-content: center;
     align-items: center;
-}
+} */
