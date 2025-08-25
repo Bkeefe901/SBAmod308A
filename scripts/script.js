@@ -31,25 +31,52 @@ const config = axios.create({
     } catch (err) {
         console.error(`Error - ${err.message}`);
     }
-})(); 
+})();
 
+
+const container = document.getElementById('container');
+const btn = document.getElementById('btn');
 
 const options = {
-  method: 'GET',
-  url: 'https://free-to-play-games-database.p.rapidapi.com/api/game',
-  params: {id: '452'},
-  headers: {
-    'x-rapidapi-host': 'free-to-play-games-database.p.rapidapi.com'
-  }
+    method: 'GET',
+    url: 'https://free-to-play-games-database.p.rapidapi.com/api/game',
+    params: { id: '452' },
+    headers: {
+        'x-rapidapi-host': 'free-to-play-games-database.p.rapidapi.com'
+    }
 };
 
-(async function fetchData() {
-	try {
-		const response = await axios.request(options);
-		console.log(response.data);
-	} catch (error) {
-		console.error(error);
-	}
-});
 
-// fetchData();
+container.addEventListener('click', eHandle);
+
+function eHandle(e) {
+    if (e.target == btn) {
+       fetchData();
+    }
+
+
+}
+
+
+
+
+
+// const options = {
+//   method: 'GET',
+//   url: 'https://free-to-play-games-database.p.rapidapi.com/api/game',
+//   params: {id: '452'},
+//   headers: {
+//     'x-rapidapi-host': 'free-to-play-games-database.p.rapidapi.com'
+//   }
+// };
+
+async function fetchData() {
+    try {
+        const response = await config.request(options);
+        console.log(response.data);
+    } catch (error) {
+        console.error(error);
+    }
+};
+
+

@@ -10,3 +10,9 @@ html, body{
 *::after{
     box-sizing: inherit;
 }
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
