@@ -1,8 +1,21 @@
+// HTML and CSS
+// Radio buttons of some sort of filter options above the dropdown. 
+
+// JS
+// DOM element variable
+const dropDownitems = document.getElementsByTagName('ul');
+const dropDownEl = dropDownitems[0]
+
+// axios request to grab games and attach them to the dropdown menu on load of the page
+
 
 
 const config = {
     method: "get",
     baseURL: "https://free-to-play-games-database.p.rapidapi.com/api",
+    params: {
+        'sort-by': 'alphabetical'
+    },
     headers: {
         "Content-Type": "application/json",
         'x-rapidapi-host': 'free-to-play-games-database.p.rapidapi.com',
@@ -12,21 +25,62 @@ const config = {
 
 
 
-(async function getData() {
-    try {
-        let response = await axios.get('/games', config);
-        // https://free-to-play-games-database.p.rapidapi.com/api/games'
-        let request = response.data;
-        console.log(request);
+//  const dropDownEl = document.getElementsByTagName('ul');
 
-    } catch (err) {
-        console.error(`Error - ${err.message}`);
+// let resArray = [];
+
+(async function getData() {
+  try {
+    const response = await axios.get('/games', config);
+    const result = response.data;
+    for (let item of result) {
+      let listEl = document.createElement("li");
+      listEl.innerHTML = `<button class="dropdown-item" id=${item.title} type="button">${item.title}</button>`;
+      dropDownEl.appendChild(listEl);
     }
+  } catch (err) {
+    console.error(`Error - ${err.message}`);
+  }
 })();
 
 
-const container = document.getElementById('container');
-const btn = document.getElementById('btn');
+
+
+
+
+// async function getData() {
+//     try {
+//         let response = await axios.get('/games', config);
+//         // https://free-to-play-games-database.p.rapidapi.com/api/games'
+//         let request = response.data;
+//         console.log(request);
+//         //console.log(request[1].title);
+//         // console.log(dropDownEl);
+//         // const dropDownEl = document.getElementsByTagName('ul');
+//         for(let item of request){
+
+//             resArray.push(item.title);
+//             // let dropDownEl = document.getElementsByTagName('ul');
+//             // let listEl = document.createElement('li');
+//             // listEl.innerHTML = `<button class="dropdown-item" id=${item.title} type="button">${item.title}</button>`;
+//             // dropDownEl.appendChild(listEl);
+
+
+//         }
+//         return resArray;
+
+//     } catch (err) {
+//         console.error(`Error - ${err.message}`);
+//     }
+// };
+
+// let resArray = getData();
+// console.log(resArray);
+
+
+
+// const container = document.getElementById('container');
+// const btn = document.getElementById('btn');
 
 
 
@@ -36,13 +90,13 @@ const config2 = {
 };
 
 
-container.addEventListener('click', eHandle);
+// container.addEventListener('click', eHandle);
 
-function eHandle(e) {
-    if (e.target == btn) {
-       fetchData();
-    }
-};
+// function eHandle(e) {
+//     if (e.target == btn) {
+//        fetchData();
+//     }
+// };
 
 
 
