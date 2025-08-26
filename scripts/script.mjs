@@ -1,16 +1,20 @@
+import * as Events from "./events.mjs"
+
+
+
 // HTML and CSS
 // Radio buttons of some sort of filter options above the dropdown. 
 
 // JS
-// DOM element variable
-const dropDownitems = document.getElementsByTagName('ul');
-const dropDownEl = dropDownitems[0]
-
-// axios request to grab games and attach them to the dropdown menu on load of the page
+// DOM element variables
+// const dropDownitems = document.getElementsByTagName('ul');
+// const dropDownEl = dropDownitems[0]
 
 
 
-const config = {
+// default config object for axios requests
+
+let config = {
     method: "get",
     baseURL: "https://free-to-play-games-database.p.rapidapi.com/api",
     params: {
@@ -23,20 +27,18 @@ const config = {
     }
 };
 
-
-
-//  const dropDownEl = document.getElementsByTagName('ul');
-
-// let resArray = [];
+// axios request to grab games and attach them to the dropdown menu on load of the page
 
 (async function getData() {
   try {
     const response = await axios.get('/games', config);
     const result = response.data;
+    console.log(result);
+    // loop to iterate through all games returned and place them in a li and append it to the ul that is the drop-down menu
     for (let item of result) {
       let listEl = document.createElement("li");
-      listEl.innerHTML = `<button class="dropdown-item" id=${item.title} type="button">${item.title}</button>`;
-      dropDownEl.appendChild(listEl);
+      listEl.innerHTML = `<button class="dropdown-item" id=${item.id} type="button">${item.title}</button>`;
+      Events.dropDownEl.appendChild(listEl);
     }
   } catch (err) {
     console.error(`Error - ${err.message}`);
@@ -44,59 +46,37 @@ const config = {
 })();
 
 
+// async function that requests the game info for a specific game from the game selected
+
+export async function getGame(id) {
+    try{    
+        config.params.id = id;
+        const config2 = config;
+        const response = await axios.get('/game', config2);
+        const result = response.data;
+        console.log(result);
+
+    } catch(err){
+        console.error(`Error - ${err.message}`);
+    }
+}
 
 
 
 
-// async function getData() {
-//     try {
-//         let response = await axios.get('/games', config);
-//         // https://free-to-play-games-database.p.rapidapi.com/api/games'
-//         let request = response.data;
-//         console.log(request);
-//         //console.log(request[1].title);
-//         // console.log(dropDownEl);
-//         // const dropDownEl = document.getElementsByTagName('ul');
-//         for(let item of request){
-
-//             resArray.push(item.title);
-//             // let dropDownEl = document.getElementsByTagName('ul');
-//             // let listEl = document.createElement('li');
-//             // listEl.innerHTML = `<button class="dropdown-item" id=${item.title} type="button">${item.title}</button>`;
-//             // dropDownEl.appendChild(listEl);
 
 
-//         }
-//         return resArray;
 
-//     } catch (err) {
-//         console.error(`Error - ${err.message}`);
-//     }
+
+
+
+
+// const config2 = {
+//     ...config,
+//     params: { id: '109'}
 // };
 
-// let resArray = getData();
-// console.log(resArray);
 
-
-
-// const container = document.getElementById('container');
-// const btn = document.getElementById('btn');
-
-
-
-const config2 = {
-    ...config,
-    params: { id: '109'}
-};
-
-
-// container.addEventListener('click', eHandle);
-
-// function eHandle(e) {
-//     if (e.target == btn) {
-//        fetchData();
-//     }
-// };
 
 
 
