@@ -77,34 +77,11 @@ export async function getGame(id) {
 
 
 
+// function to clear cards
 
+export function clearCard(){
+    Events.articleEl.innerHTML = '';
+}
 
-
-
-
-
-
-
-// const config2 = {
-//     ...config,
-//     params: { id: '109'}
-// };
-
-
-
-
-
-async function fetchData() {
-    try {
-        const response = await axios.request("/game", config2);
-        console.log(response.data);
-        const result = response.data;
-        const desc = result.description
-        console.log(desc);
-        
-    } catch (error) {
-        console.error(error);
-    }
-};
 
 
