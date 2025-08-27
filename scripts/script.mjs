@@ -55,6 +55,19 @@ export async function getGame(id) {
         const response = await axios.get('/game', config2);
         const result = response.data;
         console.log(result);
+        let cardEl = document.createElement("div");
+        cardEl.setAttribute("class", "m-4");
+        cardEl.innerHTML = `<div class="card" style="width: 300px;">
+                                <img src="${result.thumbnail}" class="card-img-top"
+                                    alt="Sample Image">
+                                <div class="card-body text-center">
+                                    <h5 class="card-title">${result.title}</h5>
+                                    <p class="card-text">${result.description}</p>
+                                    <a href="${result.game_url}" class="btn btn-primary">Game Url</a>
+                                </div>
+                            </div>`;
+        Events.articleEl.appendChild(cardEl);
+
         
 
     } catch(err){
