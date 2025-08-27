@@ -25,7 +25,9 @@ header > h1{
 
 .dropdown{
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
+    align-items: center;
+    
 }
 
 article{
