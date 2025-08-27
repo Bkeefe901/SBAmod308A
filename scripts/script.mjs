@@ -55,6 +55,7 @@ export async function getGame(id) {
         const response = await axios.get('/game', config2);
         const result = response.data;
         console.log(result);
+        
 
     } catch(err){
         console.error(`Error - ${err.message}`);

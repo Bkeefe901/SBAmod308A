@@ -28,6 +28,10 @@ header > h1{
     justify-content: center;
 }
 
+article{
+    display: flex;
+    flex-wrap: wrap;
+}
 /* body{
     display: flex;
     justify-content: center;

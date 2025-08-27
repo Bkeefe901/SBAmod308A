@@ -8,9 +8,9 @@ export const dropDownEl = dropDownitems[0]
 dropDownEl.addEventListener('click', itemClick);
 
 function itemClick(e){
-    // console.log(e.target.id);
-    // return e.target.id;
+    console.log(e.target.id);
     Calls.getGame(e.target.id);
+    
 }
 
 
