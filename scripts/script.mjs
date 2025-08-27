@@ -1,4 +1,4 @@
-import * as Events from "./events.mjs"
+import * as V from "./variables.mjs"
 
 
 
@@ -38,7 +38,7 @@ let config = {
     for (let item of result) {
       let listEl = document.createElement("li");
       listEl.innerHTML = `<button class="dropdown-item" id=${item.id} type="button">${item.title}</button>`;
-      Events.dropDownEl.appendChild(listEl);
+      V.dropDownEl.appendChild(listEl);
     }
   } catch (err) {
     console.error(`Error - ${err.message}`);
@@ -66,7 +66,7 @@ export async function getGame(id) {
                                     <a href="${result.game_url}" class="btn btn-primary">Game Url</a>
                                 </div>
                             </div>`;
-        Events.articleEl.appendChild(cardEl);
+        V.articleEl.appendChild(cardEl);
 
         
 
@@ -80,7 +80,7 @@ export async function getGame(id) {
 // function to clear cards
 
 export function clearCard(){
-    Events.articleEl.innerHTML = '';
+    V.articleEl.innerHTML = '';
 }
 
 
