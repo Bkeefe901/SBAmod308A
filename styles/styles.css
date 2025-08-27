@@ -3,6 +3,11 @@ html, body{
     padding: 0;
     box-sizing: border-box;
     height: 100%;
+    
+}
+
+body{
+    background-color: #ccc5b9;
 }
 
 *,
@@ -15,12 +20,14 @@ header{
     display: flex;
     justify-content: center;
     margin-bottom: 8em;
-    background-color: dimgray;
+    background-color: #403d39;
     padding: 2em;
+    box-shadow: 0 15px 10px rgba(0, 0, 0, 0.5) ;
 }
 
 header > h1{
-    color: antiquewhite;
+    color: #eb5e28;
+    font-size: 100px;
 }
 
 .dropdown{

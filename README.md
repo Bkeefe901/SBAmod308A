@@ -13,3 +13,17 @@
 - Commit frequently to the git repository.
 - Include a README file that contains a description of your application.
 - Level of effort displayed in creativity, presentation, and user experience.
+
+## Built With
+- ![Bootstrap](images/image.png)
+
+- ![Axios](images/image-4.png)
+
+- ![RapidApi](images/image-5.png)
+
+
+
+
+## General Explanation of Project
+
+This project is a webpage for comparing games that can be pulled up as card elements on the page after selecting games from a drop-down menu. At any time you can clear your selection to compare different games. Each card has a thumbnail of the game title as well as a description and a link button to the game page url. It uses Bootstrap for most of the layout elements, Axios for the api fetching and it fetches from Rapid API. 
