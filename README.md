@@ -15,7 +15,8 @@
 - Level of effort displayed in creativity, presentation, and user experience.
 
 ## Built With
-- ![Bootstrap](images/image.png)
+
+- ![Bootstrap](https://github.com/Bkeefe901/SBAmod308A/blob/main/images/image.png)
 
 - ![Axios](images/image-4.png)
 
@@ -27,3 +28,11 @@
 ## General Explanation of Project
 
 This project is a webpage for comparing games that can be pulled up as card elements on the page after selecting games from a drop-down menu. At any time you can clear your selection to compare different games. Each card has a thumbnail of the game title as well as a description and a link button to the game page url. It uses Bootstrap for most of the layout elements, Axios for the api fetching and it fetches from Rapid API. 
+
+
+## Acknowledgements
+
+- [Coolors](https://coolors.co/)
+- [Github](https://github.com)
+- [FreeToGame](https://www.freetogame.com/api-doc)
+- [Per Scholas](https://perscholas.org)
